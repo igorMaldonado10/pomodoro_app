@@ -14,7 +14,6 @@ The Pomodoro Mobile App is a simple mobile application to help you manage your t
 
 - Work and break time configuration
 - Notifications to mark the start and end of each Pomodoro cycle
-- Productivity statistics to track your performance
 - Intuitive and user-friendly interface
 
 ## Screenshots
