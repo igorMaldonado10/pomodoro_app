@@ -28,7 +28,7 @@ class EntradaTempo extends StatelessWidget {
         // const Padding(padding: EdgeInsets.only(bottom: 45)),
         Text(
           titulo,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
           ),
         ),
