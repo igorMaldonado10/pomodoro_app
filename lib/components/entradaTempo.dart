@@ -1,4 +1,4 @@
-import 'package:design_system/design_system.dart';
+// import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,11 +11,11 @@ class EntradaTempo extends StatelessWidget {
   final void Function()? dec;
 
   const EntradaTempo({
-    super.key,
-    this.inc,
-    this.dec,
     required this.titulo,
     required this.valor,
+    this.inc,
+    this.dec,
+    super.key,
   });
 
   @override
@@ -25,60 +25,47 @@ class EntradaTempo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // const Padding(padding: EdgeInsets.only(bottom: 45)),
         Text(
           titulo,
           style: const TextStyle(
-            fontSize: 18,
+            fontSize: 25,
           ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
               onPressed: dec,
-              child: Icon(
-                Icons.arrow_downward,
-                // color: DSConstColor.lighter,
-                color: DSConstColor.light,
-              ),
               style: ElevatedButton.styleFrom(
-                  shape: CircleBorder(),
-                  padding: EdgeInsets.all(15),
-                  backgroundColor: 
-                  store.estaTrabalhando() ? 
-                  Colors.red : 
-                  Colors.green,
-                ),
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(15),
+                backgroundColor:
+                    store.estaTrabalhando() ? Colors.red : Colors.green,
+              ),
+              child: const Icon(
+                Icons.arrow_downward,
+                color: Colors.white,
+              ),
             ),
             Text(
               '$valor min',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
               ),
             ),
             ElevatedButton(
               onPressed: inc,
-              // Isso não pode:
-              // onPressed: () {
-              //   inc;
-              // },
-              child: Icon(
-                Icons.arrow_upward,
-                // color: DSConstColor.lighter,
-                color: DSConstColor.light,
-              ),
               style: ElevatedButton.styleFrom(
-                  shape: CircleBorder(),
-                  padding: EdgeInsets.all(15),
-                  backgroundColor: 
-                  store.estaTrabalhando() ? 
-                  Colors.red : 
-                  Colors.green,
-                  ),
+                shape: const CircleBorder(),
+                padding: const EdgeInsets.all(15),
+                backgroundColor:
+                    store.estaTrabalhando() ? Colors.red : Colors.green,
+              ),
+              child: const Icon(
+                Icons.arrow_upward,
+                color: Colors.white,
+              ),
             ),
           ],
         ),
