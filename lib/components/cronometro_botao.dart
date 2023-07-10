@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
+
 class CronometroBotao extends StatelessWidget {
   final String texto;
   final IconData icone;
+  final void Function()? click;
 
-  CronometroBotao({
-    super.key,
-    required this.icone,
-    required this.texto,
-  });
+  CronometroBotao(
+      {super.key, required this.texto, required this.icone, this.click});
 
   @override
   Widget build(BuildContext context) {
+
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.black,
@@ -19,7 +19,7 @@ class CronometroBotao extends StatelessWidget {
             textStyle: TextStyle(
               fontSize: 25,
             )),
-        onPressed: () {},
+        onPressed: click,
         child: Row(
           children: [
             Padding(

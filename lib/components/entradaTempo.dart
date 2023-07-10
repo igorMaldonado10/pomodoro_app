@@ -1,5 +1,8 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../store/pomodoro.store.dart';
 
 class EntradaTempo extends StatelessWidget {
   final String titulo;
@@ -17,13 +20,15 @@ class EntradaTempo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<PomodoroStore>(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // const Padding(padding: EdgeInsets.only(bottom: 45)),
         Text(
           titulo,
-          style:  TextStyle(
+          style: TextStyle(
             fontSize: 18,
           ),
         ),
@@ -42,8 +47,12 @@ class EntradaTempo extends StatelessWidget {
               ),
               style: ElevatedButton.styleFrom(
                   shape: CircleBorder(),
-                  backgroundColor: Colors.red,
-                  padding: EdgeInsets.all(15)),
+                  padding: EdgeInsets.all(15),
+                  backgroundColor: 
+                  store.estaTrabalhando() ? 
+                  Colors.red : 
+                  Colors.green,
+                ),
             ),
             Text(
               '$valor min',
@@ -52,20 +61,24 @@ class EntradaTempo extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-               onPressed: inc,
+              onPressed: inc,
               // Isso não pode:
               // onPressed: () {
               //   inc;
               // },
-              child:  Icon(
+              child: Icon(
                 Icons.arrow_upward,
                 // color: DSConstColor.lighter,
                 color: DSConstColor.light,
               ),
               style: ElevatedButton.styleFrom(
                   shape: CircleBorder(),
-                  backgroundColor: Colors.red,
-                  padding: EdgeInsets.all(15)),
+                  padding: EdgeInsets.all(15),
+                  backgroundColor: 
+                  store.estaTrabalhando() ? 
+                  Colors.red : 
+                  Colors.green,
+                  ),
             ),
           ],
         ),
